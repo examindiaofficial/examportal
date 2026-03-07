@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ExamIndia v2 — All Government Exams</title>
+<!-- Google AdSense — replace ca-pub-XXXXXXXXXXXXXXXX with your Publisher ID -->
+<!-- Get your ID from adsense.google.com after approval -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<!-- UNCOMMENT the line above after AdSense approves your site -->
+
 <!-- PWA Manifest (generated dynamically) -->
 <link rel="manifest" href="#" id="manifestLink">
 <meta name="theme-color" content="#1a1a2e">
@@ -474,6 +479,32 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
 .location-pill .loc-dot { width:7px; height:7px; background:#4ade80; border-radius:50%; animation:blink 2s infinite; }
 @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
 
+
+/* ── ADSENSE AD SPOTS ── */
+.ad-slot { width:100%; min-height:90px; background:#f8f7f2; border:1.5px dashed #e5e7eb; border-radius:10px; display:flex; align-items:center; justify-content:center; margin:16px 0; overflow:hidden; }
+.ad-slot-banner { min-height:90px; } /* 728x90 leaderboard */
+.ad-slot-rect { min-height:250px; } /* 300x250 rectangle */
+.ad-slot-label { font-size:.65rem; color:#9ca3af; text-transform:uppercase; letter-spacing:.1em; }
+.ad-sidebar { position:sticky; top:20px; }
+
+/* ── AFFILIATE SECTION ── */
+.affiliate-strip { background:linear-gradient(135deg,#1a1a2e,#0f3460); border-radius:14px; padding:18px 20px; margin:16px 0; }
+.affiliate-strip h3 { color:white; font-size:.85rem; font-weight:800; margin-bottom:12px; }
+.affiliate-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; }
+.aff-card { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all .2s; text-decoration:none; display:block; }
+.aff-card:hover { background:rgba(255,255,255,.15); transform:translateY(-2px); }
+.aff-card-icon { font-size:1.6rem; margin-bottom:6px; }
+.aff-card-name { font-size:.75rem; font-weight:700; color:white; margin-bottom:2px; }
+.aff-card-offer { font-size:.68rem; color:rgba(255,255,255,.6); margin-bottom:8px; }
+.aff-card-btn { display:inline-block; padding:5px 12px; background:var(--saffron); color:white; border-radius:6px; font-size:.7rem; font-weight:700; }
+
+/* ── TELEGRAM BANNER ── */
+.tg-banner { background:linear-gradient(135deg,#0088cc,#0066aa); border-radius:14px; padding:16px 20px; margin:16px 0; display:flex; align-items:center; gap:14px; cursor:pointer; transition:all .2s; text-decoration:none; }
+.tg-banner:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,136,204,.3); }
+.tg-banner-text strong { display:block; color:white; font-size:.92rem; font-weight:800; }
+.tg-banner-text span { color:rgba(255,255,255,.7); font-size:.76rem; }
+.tg-banner-btn { padding:9px 16px; background:white; color:#0088cc; border-radius:9px; font-size:.8rem; font-weight:700; white-space:nowrap; flex-shrink:0; }
+
 @media(max-width:600px){.exam-grid{grid-template-columns:1fr}.hero{padding:36px 16px 40px}.nav-center{display:none}.cal-grid{gap:1px}.cal-cell{min-height:60px}.mock-options{grid-template-columns:1fr}.states-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
@@ -583,6 +614,25 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
       <button class="geo-banner-btn" id="geoBannerBtn">View My Exams →</button>
       <button class="geo-banner-dismiss" onclick="event.stopPropagation();dismissGeoBanner()" title="Dismiss">✕</button>
     </div>
+    <!-- ═══ ADSENSE TOP BANNER ═══ -->
+    <div class="ad-slot ad-slot-banner" id="adTop">
+      <!-- After AdSense approval, replace this div content with:
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX" data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span class="ad-slot-label">Advertisement</span>
+    </div>
+
+    <!-- ═══ TELEGRAM JOIN BANNER ═══ -->
+    <a class="tg-banner" href="https://t.me/examindiaofficial" target="_blank" id="tgBanner">
+      <span style="font-size:2.2rem">✈️</span>
+      <div class="tg-banner-text">
+        <strong>Join ExamIndia on Telegram!</strong>
+        <span>Get instant vacancy alerts, admit cards & results — Free!</span>
+      </div>
+      <span class="tg-banner-btn">Join Now →</span>
+    </a>
+
     <div id="liveDataBanner" style="display:none;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:11px;padding:11px 16px;align-items:center;gap:10px;margin-bottom:14px;font-size:.8rem;color:#166534;font-weight:600;">
       <span style="font-size:1.1rem">📡</span>
       <span id="liveDataBannerText"></span>
@@ -591,6 +641,54 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
       <span id="liveStatusMsg" style="font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:6px;"></span>
     </div>
     <div class="exam-grid" id="examGrid"></div>
+    <!-- ═══ AFFILIATE COACHING PLATFORMS ═══ -->
+    <div class="affiliate-strip">
+      <h3>🎓 Top Coaching Platforms — Start Preparing Today!</h3>
+      <div class="affiliate-cards">
+        <a class="aff-card" href="https://testbook.com/?ref=examindiaofficial" target="_blank" onclick="trackAffClick('testbook')">
+          <div class="aff-card-icon">📚</div>
+          <div class="aff-card-name">Testbook</div>
+          <div class="aff-card-offer">Free Mock Tests</div>
+          <span class="aff-card-btn">Try Free →</span>
+        </a>
+        <a class="aff-card" href="https://unacademy.com/?ref=examindiaofficial" target="_blank" onclick="trackAffClick('unacademy')">
+          <div class="aff-card-icon">🎯</div>
+          <div class="aff-card-name">Unacademy</div>
+          <div class="aff-card-offer">Live Classes</div>
+          <span class="aff-card-btn">Join Free →</span>
+        </a>
+        <a class="aff-card" href="https://adda247.com/?ref=examindiaofficial" target="_blank" onclick="trackAffClick('adda247')">
+          <div class="aff-card-icon">⭐</div>
+          <div class="aff-card-name">Adda247</div>
+          <div class="aff-card-offer">Study Material</div>
+          <span class="aff-card-btn">Explore →</span>
+        </a>
+        <a class="aff-card" href="https://www.pw.live/?ref=examindiaofficial" target="_blank" onclick="trackAffClick('pw')">
+          <div class="aff-card-icon">⚡</div>
+          <div class="aff-card-name">Physics Wallah</div>
+          <div class="aff-card-offer">Affordable Courses</div>
+          <span class="aff-card-btn">Explore →</span>
+        </a>
+        <a class="aff-card" href="https://gradeup.co/?ref=examindiaofficial" target="_blank" onclick="trackAffClick('gradeup')">
+          <div class="aff-card-icon">🏆</div>
+          <div class="aff-card-name">Gradeup</div>
+          <div class="aff-card-offer">Test Series</div>
+          <span class="aff-card-btn">Start Free →</span>
+        </a>
+        <a class="aff-card" href="https://www.oliveboard.in/?ref=examindiaofficial" target="_blank" onclick="trackAffClick('oliveboard')">
+          <div class="aff-card-icon">🟢</div>
+          <div class="aff-card-name">Oliveboard</div>
+          <div class="aff-card-offer">Banking Exams</div>
+          <span class="aff-card-btn">Try Free →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══ MID PAGE AD ═══ -->
+    <div class="ad-slot ad-slot-rect" id="adMid">
+      <span class="ad-slot-label">Advertisement</span>
+    </div>
+
     <div class="ai-section">
       <div class="ai-head"><span class="ai-badge">✦ AI</span><h2 data-i18n="ask_ai">Ask ExamIndia AI</h2></div>
       <div class="ai-msgs" id="aiMsgs">
@@ -3029,6 +3127,126 @@ function dismissGeoBanner() {
 // Also update count after live data loads
 function updateGeoBannerCount() {
   if (detectedState) showGeoBanner(detectedState, false);
+}
+
+
+// ═══════════════════════════════════════
+// AFFILIATE CLICK TRACKING
+// ═══════════════════════════════════════
+const affClicks = JSON.parse(localStorage.getItem('affClicks') || '{}');
+
+function trackAffClick(platform) {
+  affClicks[platform] = (affClicks[platform] || 0) + 1;
+  affClicks._total = (affClicks._total || 0) + 1;
+  affClicks._last = new Date().toISOString();
+  localStorage.setItem('affClicks', JSON.stringify(affClicks));
+  // Show encouraging message
+  const msgs = {
+    testbook: '📚 Great choice! Testbook has the best mock tests for SSC & Banking',
+    unacademy: '🎯 Unacademy has top educators for UPSC & State PSC',
+    adda247: '⭐ Adda247 is perfect for SSC CGL preparation',
+    pw: '⚡ Physics Wallah offers amazing courses at lowest price!',
+    gradeup: '🏆 Gradeup test series is highly rated by toppers',
+    oliveboard: '🟢 Oliveboard is #1 for Banking exam preparation',
+  };
+  showToast(msgs[platform] || '🎓 Opening ' + platform + '...');
+}
+
+// ═══════════════════════════════════════
+// ADSENSE HELPER
+// ═══════════════════════════════════════
+function activateAdSense(publisherId) {
+  // Call this function after AdSense approval with your publisher ID
+  // e.g. activateAdSense('ca-pub-1234567890123456')
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + publisherId;
+  script.crossOrigin = 'anonymous';
+  document.head.appendChild(script);
+
+  // Replace placeholder ad slots with real ads
+  const adSlots = [
+    { id: 'adTop',    format: 'auto',      slot: 'YOUR_AD_SLOT_1' },
+    { id: 'adMid',    format: 'rectangle', slot: 'YOUR_AD_SLOT_2' },
+    { id: 'adBottom', format: 'auto',      slot: 'YOUR_AD_SLOT_3' },
+  ];
+
+  adSlots.forEach(ad => {
+    const el = document.getElementById(ad.id);
+    if (!el) return;
+    el.innerHTML = `<ins class="adsbygoogle" style="display:block"
+      data-ad-client="${publisherId}"
+      data-ad-slot="${ad.slot}"
+      data-ad-format="${ad.format}"
+      data-full-width-responsive="true"></ins>`;
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  });
+}
+
+// ═══════════════════════════════════════
+// TELEGRAM CHANNEL
+// ═══════════════════════════════════════
+// Update this with your real Telegram channel link after creating it
+const TELEGRAM_CHANNEL = 'https://t.me/examindiaofficial';
+
+function updateTelegramLinks() {
+  document.querySelectorAll('[href*="t.me/examindiaofficial"]').forEach(el => {
+    el.href = TELEGRAM_CHANNEL;
+  });
+}
+
+// Add Telegram join button to notifications page
+function addTelegramToNotifs() {
+  const notifPage = document.getElementById('page-notifications');
+  if (!notifPage) return;
+  const tgDiv = document.createElement('div');
+  tgDiv.innerHTML = `
+    <a class="tg-banner" href="${TELEGRAM_CHANNEL}" target="_blank" style="margin-top:16px;display:flex">
+      <span style="font-size:2.2rem">✈️</span>
+      <div class="tg-banner-text">
+        <strong>Join our Telegram Channel</strong>
+        <span>Instant alerts for every new vacancy — completely FREE!</span>
+      </div>
+      <span class="tg-banner-btn">Join Now →</span>
+    </a>`;
+  const container = notifPage.querySelector('.container');
+  if (container) container.insertBefore(tgDiv, container.firstChild);
+}
+
+// Init on load
+setTimeout(addTelegramToNotifs, 500);
+
+
+// ── DEADLINE COUNTDOWN ──────────────────────────────────────
+function getDeadlineCountdown(dateStr) {
+  if (!dateStr || dateStr === 'TBA') return '';
+  try {
+    const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+    const parts = dateStr.trim().split(' ');
+    let d, m, y;
+    if (parts.length === 3) {
+      // "30 Apr 2026"
+      d = parseInt(parts[0]);
+      m = months[parts[1]];
+      y = parseInt(parts[2]);
+    } else if (parts.length === 2) {
+      // "Apr 2026"
+      d = 30;
+      m = months[parts[0]];
+      y = parseInt(parts[1]);
+    } else return '';
+    
+    const deadline = new Date(y, m, d);
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const diff = Math.ceil((deadline - today) / (1000*60*60*24));
+    
+    if (diff < 0) return ' <span style="color:#dc2626;font-size:.65rem;font-weight:700">EXPIRED</span>';
+    if (diff === 0) return ' <span style="color:#dc2626;font-size:.65rem;font-weight:700;animation:blink 1s infinite">TODAY!</span>';
+    if (diff <= 7) return ` <span style="color:#dc2626;font-size:.65rem;font-weight:700">${diff}d left!</span>`;
+    if (diff <= 30) return ` <span style="color:#f59e0b;font-size:.65rem;font-weight:700">${diff}d left</span>`;
+    return ` <span style="color:#6b7280;font-size:.65rem">${diff}d left</span>`;
+  } catch(e) { return ''; }
 }
 
 </script>
