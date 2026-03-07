@@ -275,14 +275,6 @@ nav {
 .signout-btn { padding:7px 16px; background:transparent; color:var(--red); border:1.5px solid var(--red); border-radius:8px; font-family:inherit; font-size:.8rem; font-weight:600; cursor:pointer; }
 
 /* ── MOCK TEST ── */
-.mock-page { }
-.mock-setup { background:white; border:1.5px solid var(--border); border-radius:14px; padding:24px; max-width:540px; margin:20px auto; }
-.mock-setup h2 { font-size:1.1rem; font-weight:800; margin-bottom:4px; }
-.mock-setup p { font-size:.8rem; color:var(--muted); margin-bottom:20px; }
-.mock-options { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:16px; }
-.mock-opt { padding:11px; background:var(--bg); border:1.5px solid var(--border); border-radius:9px; cursor:pointer; text-align:center; font-size:.8rem; font-weight:600; color:var(--ink2); transition:all .15s; font-family:inherit; }
-.mock-opt:hover,.mock-opt.sel{background:#fff7ed;border-color:var(--saffron);color:var(--saffron)}
-.mock-start-btn { width:100%; padding:12px; background:var(--saffron); color:white; border:none; border-radius:9px; font-family:inherit; font-size:.9rem; font-weight:700; cursor:pointer; }
 .mock-quiz { display:none; max-width:640px; margin:20px auto; }
 .quiz-progress { background:white; border:1.5px solid var(--border); border-radius:10px; padding:12px 16px; display:flex; align-items:center; gap:12px; margin-bottom:16px; }
 .quiz-prog-bar { flex:1; height:6px; background:var(--bg); border-radius:3px; overflow:hidden; }
@@ -488,8 +480,6 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
 .ad-sidebar { position:sticky; top:20px; }
 
 /* ── AFFILIATE SECTION ── */
-.affiliate-strip { background:linear-gradient(135deg,#1a1a2e,#0f3460); border-radius:14px; padding:18px 20px; margin:16px 0; }
-.affiliate-strip h3 { color:white; font-size:.85rem; font-weight:800; margin-bottom:12px; }
 .affiliate-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; }
 .aff-card { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all .2s; text-decoration:none; display:block; }
 .aff-card:hover { background:rgba(255,255,255,.15); transform:translateY(-2px); }
@@ -526,7 +516,7 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
     <button class="nav-btn active" onclick="showPage('exams')"><span data-i18n="nav_exams">🗂 Exams</span></button>
     <button class="nav-btn" onclick="showPage('calendar')"><span data-i18n="nav_calendar">📅 Calendar</span></button>
     <button class="nav-btn" onclick="showPage('notifications')"><span data-i18n="nav_alerts">🔔 Alerts</span></button>
-    <button class="nav-btn" onclick="showPage('mocktest')"><span data-i18n="nav_mock">🧠 Mock Test</span></button>
+    
     <button class="nav-btn" onclick="showPage('dashboard')"><span data-i18n="nav_dashboard">👤 Dashboard</span></button>
     <button class="nav-btn" onclick="showPage('states')"><span data-i18n="nav_states">🗺️ States</span></button>
     <button class="nav-btn" onclick="showPage('results')"><span data-i18n="nav_results">📄 Results</span></button>
@@ -561,7 +551,7 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
   <div class="hero">
     <div class="tribar"><span></span><span></span><span></span></div>
     <h1 data-i18n="hero_title">India's <em>Complete</em> Govt<br>Exam Platform</h1>
-    <p data-i18n="hero_sub">All exams · AI form guide · Mock tests · Deadline alerts · 23 languages</p>
+    <p data-i18n="hero_sub">All exams · AI form guide · Deadline alerts · 23 languages</p>
     <div class="location-pill" id="locationPill" onclick="goToMyState()" style="display:none">
     <span class="loc-dot"></span>
     <span id="locationPillText">Detecting location…</span>
@@ -642,12 +632,6 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
     </div>
     <div class="exam-grid" id="examGrid"></div>
     <!-- ═══ AFFILIATE COACHING PLATFORMS ═══ -->
-    <div class="affiliate-strip">
-      <h3>🎓 Top Coaching Platforms — Start Preparing Today!</h3>
-      <div class="affiliate-cards">
-        <a class="aff-card" href="https://testbook.com/?ref=examindiaofficial" target="_blank" onclick="trackAffClick('testbook')">
-          <div class="aff-card-icon">📚</div>
-          <div class="aff-card-name">Testbook</div>
           <div class="aff-card-offer">Free Mock Tests</div>
           <span class="aff-card-btn">Try Free →</span>
         </a>
@@ -788,56 +772,6 @@ footer strong{color:white} footer p{font-size:.76rem;line-height:1.7} footer a{c
 <!-- ══════════════════════════════════════ -->
 <!-- PAGE: MOCK TEST -->
 <!-- ══════════════════════════════════════ -->
-<div class="page" id="page-mocktest">
-  <div class="container" style="padding-top:24px">
-    <div class="mock-setup" id="mockSetup">
-      <h2>🧠 AI Mock Test Generator</h2>
-      <p>Select exam and subject — AI will generate 10 questions instantly with explanations</p>
-      <div class="form-field"><label>Select Exam</label>
-        <select id="mockExam">
-          <option value="SSC CGL">SSC CGL</option><option value="IBPS PO">IBPS PO</option>
-          <option value="RRB NTPC">RRB NTPC</option><option value="UPSC CSE">UPSC CSE Prelims</option>
-          <option value="NDA">NDA</option><option value="CTET">CTET</option><option value="SBI Clerk">SBI Clerk</option>
-        </select>
-      </div>
-      <div class="form-field"><label>Subject</label>
-        <div class="mock-options" id="mockSubjects">
-          <button class="mock-opt sel" onclick="selSubject(this)">Quantitative Aptitude</button>
-          <button class="mock-opt" onclick="selSubject(this)">Reasoning</button>
-          <button class="mock-opt" onclick="selSubject(this)">General Awareness</button>
-          <button class="mock-opt" onclick="selSubject(this)">English Language</button>
-          <button class="mock-opt" onclick="selSubject(this)">General Science</button>
-          <button class="mock-opt" onclick="selSubject(this)">Current Affairs</button>
-        </div>
-      </div>
-      <div class="form-field"><label>Difficulty</label>
-        <div class="mock-options" id="mockDiff">
-          <button class="mock-opt sel" onclick="selDiff(this)">Easy</button>
-          <button class="mock-opt" onclick="selDiff(this)">Medium</button>
-          <button class="mock-opt" onclick="selDiff(this)">Hard</button>
-          <button class="mock-opt" onclick="selDiff(this)">Mixed</button>
-        </div>
-      </div>
-      <button class="mock-start-btn" onclick="startMock()">⚡ Generate Test Now</button>
-    </div>
-    <div class="mock-quiz" id="mockQuiz">
-      <div class="quiz-progress">
-        <div style="font-size:.8rem;font-weight:700;color:var(--ink2)" id="qProgressLabel">Q1 of 10</div>
-        <div class="quiz-prog-bar"><div class="quiz-prog-fill" id="qProgFill" style="width:10%"></div></div>
-        <div class="quiz-timer" id="qTimer">25:00</div>
-      </div>
-      <div id="quizQArea"></div>
-    </div>
-    <div class="quiz-result" id="quizResult">
-      <h2 style="font-size:1.1rem;font-weight:800;margin-bottom:16px">Test Complete! 🎉</h2>
-      <div class="score-circle"><div class="score-num" id="scoreNum">0</div><div class="score-total" id="scoreTot">/ 10</div></div>
-      <p id="scoreMsg" style="font-size:.85rem;color:var(--muted);margin-bottom:8px"></p>
-      <p id="scoreDetail" style="font-size:.8rem;color:var(--ink2)"></p>
-      <button class="quiz-retake" onclick="resetMock()">🔄 New Test</button>
-    </div>
-  </div>
-</div>
-
 <!-- ══════════════════════════════════════ -->
 <!-- PAGE: DASHBOARD -->
 <!-- ══════════════════════════════════════ -->
@@ -2322,7 +2256,7 @@ const TRANSLATIONS = {
     nav_mock:'🧠 Mock Test', nav_dashboard:'👤 Dashboard', nav_states:'🗺️ States',
     sign_in:'Sign In', sign_in_btn:'Sign In', signup_btn:'Sign Up Free',
     hero_title:"India's <em>Complete</em> Govt<br>Exam Platform",
-    hero_sub:'All exams · AI form guide · Mock tests · Deadline alerts · 23 languages',
+    hero_sub:'All exams · AI form guide · Deadline alerts · 23 languages',
     stat_exams:'Active Exams', stat_states:'States', stat_students:'Students', stat_always:'Always',
     search_ph:'Search — SSC CGL, IBPS PO, NDA, UPSC...', search_btn:'Search',
     urgent_title:'Closing Soon — Apply Before Deadline!',
