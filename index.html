@@ -1497,7 +1497,7 @@ function toggleNotifCat(key, el) {
 // ─── YOUR WHATSAPP NUMBER ───────────────────────────────────
 // Replace with your own WhatsApp number (with country code, no + or spaces)
 // e.g. India +91 98765 43210 → '919876543210'
-const OWNER_WHATSAPP = '9284502401';
+const OWNER_WHATSAPP = 'YOUR_NUMBER_HERE';
 // ────────────────────────────────────────────────────────────
 
 function isPhoneNumber(v) {
@@ -1529,14 +1529,14 @@ function handleSubscribe(inputId) {
       }).catch(()=>{});
     }
     // 2. Notify YOU on WhatsApp that someone subscribed
-    if (OWNER_WHATSAPP && OWNER_WHATSAPP !== '9284502401') {
+    if (OWNER_WHATSAPP && OWNER_WHATSAPP !== 'YOUR_NUMBER_HERE') {
       const ownerMsg = `🔔 *New ExamIndia Subscriber!*\n📱 WhatsApp: +${phone}\n📅 ${new Date().toLocaleString('en-IN')}\n\nSend them exam alerts on WhatsApp!`;
       window.open('https://wa.me/' + OWNER_WHATSAPP + '?text=' + encodeURIComponent(ownerMsg), '_blank');
     }
     // 3. Open WhatsApp for the user — they send YOU a message to join your list
     const userMsg = `Hi! I want to subscribe to *ExamIndia* vacancy alerts 🔔\n\nPlease add me to your notification list.\n\n_Sent from examindia.in_`;
     setTimeout(() => {
-      if (OWNER_WHATSAPP && OWNER_WHATSAPP !== '9284502401') {
+      if (OWNER_WHATSAPP && OWNER_WHATSAPP !== 'YOUR_NUMBER_HERE') {
         window.open('https://wa.me/' + OWNER_WHATSAPP + '?text=' + encodeURIComponent(userMsg), '_blank');
         showToast('✅ Opening WhatsApp — send the message to subscribe!');
       } else {
@@ -1813,7 +1813,7 @@ const AI_SYSTEM = `You are ExamIndia AI, an expert assistant for Indian governme
 // ✅ SECURE: All AI calls go through your Cloudflare Worker proxy.
 // Your real API key is stored as a secret in Cloudflare — never exposed here.
 // Replace the URL below with your actual Worker URL after deploying.
-const AI_PROXY_URL = 'https://examportal-ai.YOUR_SUBDOMAIN.workers.dev';
+const AI_PROXY_URL = 'https://examportal-ai.dangegajanan007.workers.dev';
 
 async function askAI() {
   const input = document.getElementById('aiInput');
